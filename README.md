@@ -1,7 +1,8 @@
-# **QuickNotify**  
+# **QuickNotify – Jetpack Compose Toast Library**  
 
 A **lightweight Jetpack Compose library** for showing **toast-style notifications** using a **global overlay**.  
 **Simple API**, customizable UI, and works across all Activities without setup.
+Shows toast-style popups, snack-like messages, and small alerts over any Activity using a global Compose overlay.
 
 ---
 
