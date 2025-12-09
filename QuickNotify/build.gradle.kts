@@ -1,7 +1,16 @@
+import java.util.Properties
+
+// Load GitHub credentials from a local file (ignored by git)
+val githubProperties = Properties().apply {
+    load(rootProject.file("github.properties").inputStream())
+}
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    id("maven-publish")
 }
 
 group = "com.swa.quicknotify"
@@ -50,4 +59,30 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.lifecycle.process)
     implementation("androidx.startup:startup-runtime:1.2.0")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.swa.quicknotify"
+            artifactId = "quicknotify"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/swatikulkarni123/ToastImageLibrary")
+            credentials {
+                username = githubProperties["gpr.user"] as String
+                password = githubProperties["gpr.token"] as String
+            }
+            println("Loaded GitHub User: " + githubProperties["gpr.user"])
+        }
+    }
 }
