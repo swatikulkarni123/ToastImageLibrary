@@ -1,7 +1,8 @@
 package com.swa.quicknotify.core
 
-import android.util.Log
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 
 object QuickNotifyController {
@@ -21,10 +22,30 @@ object QuickNotifyController {
 
 // message data
 data class QuickNotifyMessage(
-    val text: String,
+    val text: String? = null,
     val icon: ImageVector? = null,
     val durationMs: Long = 2000L,
-    val kind: QuickNotifyKind = QuickNotifyKind.Toast
+    val kind: QuickNotifyKind = QuickNotifyKind.Toast,
+
+    // Dialog params
+    val dialogTitle: String? = null,
+    val dialogBody: String? = null,
+    val dialogImage: Painter? = null,
+
+    val btn1Text: String? = null,
+    val btn1Color: Color = Color(0xFF1976D2),
+    val btn1Icon: ImageVector? = null,
+    val onBtn1Click: (() -> Unit)? = null,
+
+    val btn2Text: String? = null,
+    val btn2Color: Color = Color(0xFF388E3C),
+    val btn2Icon: ImageVector? = null,
+    val onBtn2Click: (() -> Unit)? = null,
+
+    val btn3Text: String? = null,
+    val btn3Color: Color = Color(0xFFD32F2F),
+    val btn3Icon: ImageVector? = null,
+    val onBtn3Click: (() -> Unit)? = null,
 )
 
 enum class QuickNotifyKind { Toast, Snackbar, Dialog }
