@@ -16,18 +16,19 @@ import kotlinx.coroutines.delay
 @Composable
 fun QuickNotifyHostInternal() {
     var isVisible by remember { mutableStateOf(false) }
-    val msgs = QuickNotifyController.currentMessage
+    var msgs = QuickNotifyController.currentMessage
     LaunchedEffect(msgs) {
         isVisible = true
         if(msgs.value?.kind != QuickNotifyKind.Dialog){
-            delay(msgs.value?.durationMs?:0)
-            isVisible = false
             delay(msgs.value?.durationMs?:1000)
+            isVisible = false
+            delay(100)
             QuickNotifyController.clear()
+            msgs.value = null
         }
     }
 
-    AnimatedVisibility(visible = isVisible) {
+    AnimatedVisibility(visible = isVisible && msgs.value!=null) {
         when (msgs.value?.kind) {
             QuickNotifyKind.Toast -> QuickToast(message = msgs.value?.text, icon = msgs.value?.icon)
             QuickNotifyKind.Snackbar -> QuickSnackbar(message = msgs.value?.text?:"", icon = msgs.value?.icon)
