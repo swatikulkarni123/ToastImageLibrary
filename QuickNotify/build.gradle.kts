@@ -2,11 +2,9 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
-    id("maven-publish")
 }
 
-group = "com.swa.quicknotify"
+group = "com.github.swatikulkarni123"
 version = "1.0.3"
 
 android {
