@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.swatikulkarni123"
-version = "1.0.3"
+version = "1.0.4"
 
 android {
     namespace = "com.swa.quicknotify"
