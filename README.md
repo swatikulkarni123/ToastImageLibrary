@@ -1,15 +1,14 @@
 ## Jetpack Compose Toast, Snackbar, Dialog & Custom Alert Library
 
-QuickNotify helps Android developers easily show **Toast**, **Snackbar**, **Dialog**, and **Custom Alerts** in **Jetpack Compose** apps...
+QuickNotify is a Jetpack Compose library that helps Android developers show
+Toast messages, Snackbars, Dialogs, and custom alerts
+using a global overlay system with zero setup.
 
 
 [![](https://jitpack.io/v/swatikulkarni123/QuickNotify.svg)](https://jitpack.io/#swatikulkarni123/QuickNotify)
 
-A **lightweight Jetpack Compose library** for showing  
-**Toast**, **Snackbars**, and **Custom Dialogs**  
-using a **global overlay** with **zero setup**.
 
-Works across all Activities without needing a host Composable.
+Works across the entire app without requiring a host Composable in each screen.
 
 ---
 
@@ -212,3 +211,10 @@ painterResource(R.drawable.ic_close)
 ## 📜 License
 
 MIT
+---
+
+### Keywords
+Jetpack Compose Toast  
+Compose Snackbar  
+Compose Dialog  
+Android Compose Alert 
